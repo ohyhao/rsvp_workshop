@@ -1,0 +1,58 @@
+<h2>Add/Update</h2>
+
+<form [formGroup]="rsvpForm" (ngSubmit)="processForm()">
+    <table>
+        <tr>
+            <td>
+                ID:
+            </td>
+            <td>
+                <input type="text" formControlName="rsvp_id">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" formControlName="name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="email" formControlName="email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Phone:
+            </td>
+            <td>
+                <input type="text" formControlName="phone" maxlength="8">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Confirmation Date:
+            </td>
+            <td>
+                <input type="date" formControlName="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Comments:
+            </td>
+            <td>
+                <input type="text" formControlName="comments">
+            </td>
+        </tr>
+        <tr>
+            <button type="submit" [disabled]="rsvpForm.invalid">Add</button>
+            <button type="reset">Cancel</button>
+        </tr>
+    </table>
+</form>

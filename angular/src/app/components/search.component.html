@@ -1,0 +1,27 @@
+<h2>Search</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="processForm()">
+    <input type="text" formControlName="q">
+    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+</form>
+
+<div>
+    <table *ngIf="RSVPs.length > 0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Comments</th>
+        </tr>
+        <tr *ngFor="let r of RSVPs">
+            <td>{{ r.rsvp_id }}</td>
+            <td>{{ r.name }}</td>
+            <td>{{ r.email }}</td>
+            <td>{{ r.phone }}</td>
+            <td>{{ r.date }}</td>
+            <td>{{ r.comments }}</td>
+        </tr>
+    </table>
+</div>
