@@ -17,21 +17,21 @@ export class RSVPService {
     insertRSVP(r: RSVP): Promise<any> {
 
         return lastValueFrom(
-            this.http.post<RSVP>('api/rsvp', r, httpHeaders)
+            this.http.post<any>('api/rsvp', r, httpHeaders)
         )
     }
 
     getRSVPs(): Promise<RSVP[]> {
 
         return lastValueFrom(
-            this.http.get<any>('api/rsvps', httpHeaders)
+            this.http.get<RSVP[]>('api/rsvps', httpHeaders)
         )
     }
 
     getNumberOfRSVP(): Promise<Count> {
 
         return lastValueFrom(
-            this.http.get<any>('api/rsvps/count', httpHeaders)
+            this.http.get<Count>('api/rsvps/count', httpHeaders)
         )
     }
 
@@ -45,7 +45,7 @@ export class RSVPService {
             .set('Accept', 'application/json')
         
         return lastValueFrom(
-            this.http.get<any>('api/rsvp', {params, headers})
+            this.http.get<RSVP[]>('api/rsvp', {params, headers})
         )
     }
 }

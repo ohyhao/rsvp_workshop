@@ -10,13 +10,18 @@
             <th>Phone</th>
             <th>Date</th>
             <th>Comments</th>
+            <th>Update</th>
         </tr>
-        <tr *ngFor="let r of RSVPs">
+        <tr *ngFor="let r of RSVPs;">
             <td>{{ r.rsvp_id }}</td>
             <td>{{ r.name }}</td>
             <td>{{ r.email }}</td>
             <td>{{ r.phone }}</td>
             <td>{{ r.date }}</td>
             <td>{{ r.comments }}</td>
+            <td>
+                <button (click)="update(r)">Update</button>
+            </td>        
         </tr>
+        
     </table>

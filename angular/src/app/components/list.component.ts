@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { Count, RSVP } from 'src/models';
 import { RSVPService } from '../rsvp.service';
 
@@ -12,7 +13,7 @@ export class ListComponent implements OnInit {
   c!: Count
   RSVPs: RSVP[] = []
 
-  constructor(private rsvpSvc: RSVPService) { }
+  constructor(private rsvpSvc: RSVPService, private router: Router) { }
 
   ngOnInit(): void {
     this.rsvpSvc.getNumberOfRSVP()
@@ -31,6 +32,12 @@ export class ListComponent implements OnInit {
         console.log(error)
       })
     
+  }
+
+  update(r: RSVP) {
+    localStorage.setItem("user", JSON.stringify(r))
+    localStorage.setItem("update", "true")
+    this.router.navigate(['/rsvp'])
   }
 
 }
